@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import logo from "../../assets/logo.png";
 
 const Navbar = ({
@@ -42,16 +42,28 @@ const Navbar = ({
             { name: "Destinations", ref: destinationsRef },
             { name: "FAQ", ref: faqRef },
           ].map(({ name, ref }) => (
-            <button key={name} onClick={() => scrollToSection(ref)} className="hover:text-yellow-400 transition duration-300">
+            <motion.button
+              key={name}
+              onClick={() => scrollToSection(ref)}
+              className="hover:text-yellow-400 transition duration-300"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.2 }}
+            >
               {name}
-            </button>
+            </motion.button>
           ))}
-          <button
+          <motion.button
             onClick={() => navigate("/contact")}
             className="border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition duration-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.3 }}
           >
             Contact Us
-          </button>
+          </motion.button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -71,6 +83,7 @@ const Navbar = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
             />
 
             {/* Sidebar Navigation with White Background */}
@@ -86,7 +99,10 @@ const Navbar = ({
               }}
             >
               {/* Close Button */}
-              <button className="text-3xl self-end text-gray-700" onClick={() => setMenuOpen(false)}>
+              <button
+                className="text-3xl self-end text-gray-700"
+                onClick={() => setMenuOpen(false)}
+              >
                 ✕
               </button>
 
@@ -100,26 +116,34 @@ const Navbar = ({
                   { name: "Destinations", ref: destinationsRef },
                   { name: "FAQ", ref: faqRef },
                 ].map(({ name, ref }) => (
-                  <button
+                  <motion.button
                     key={name}
                     onClick={() => scrollToSection(ref)}
                     className="block w-full text-left px-4 py-3 rounded-lg hover:bg-gray-200 transition duration-300"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ delay: 0.2 }}
                   >
                     {name}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
 
               {/* Contact Button */}
-              <button
+              <motion.button
                 onClick={() => {
                   navigate("/contact");
                   setMenuOpen(false);
                 }}
                 className="mt-6 w-full border border-black px-6 py-3 rounded-full bg-black text-white hover:bg-gray-800 transition duration-300"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ delay: 0.3 }}
               >
                 Contact Us
-              </button>
+              </motion.button>
             </motion.div>
           </>
         )}

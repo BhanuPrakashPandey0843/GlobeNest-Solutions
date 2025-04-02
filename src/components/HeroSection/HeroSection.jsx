@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion"; // Import motion for animations
+
 const destinations = [
   { name: "India", flag: "https://images6.alphacoders.com/911/911295.png" },
   { name: "Ireland", flag: "https://www.worldatlas.com/r/w2000-h1125-q90/upload/a8/ca/b2/ie-flag.jpg" },
@@ -57,10 +59,13 @@ const StudyDestinations = () => {
           style={{ whiteSpace: "nowrap" }}
         >
           {[...destinations, ...destinations].map((destination, index) => (
-            <div
+            <motion.div
               key={index}
               className="flex flex-col items-center space-y-3 transform hover:scale-105 transition duration-300 ease-in-out"
               style={{ minWidth: "150px" }}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
             >
               <img
                 src={destination.flag}
@@ -70,7 +75,7 @@ const StudyDestinations = () => {
               <span className="text-lg font-medium text-gray-700">
                 {destination.name}
               </span>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -93,46 +98,69 @@ const HeroSection = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <button className="bg-transparent text-sm font-medium text-gray-700 px-5 py-2 rounded-full shadow-md mb-4">
+        <motion.button
+          className="bg-transparent text-sm font-medium text-gray-700 px-5 py-2 rounded-full shadow-md mb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
           Explore best abroad facilities with GlobeNest Solutions
-        </button>
+        </motion.button>
 
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-gray-900">
-          Find your perfect <br></br>university abroad facilities
-        </h1>
-      
+        <motion.h1
+          className="text-5xl md:text-6xl font-extrabold leading-tight text-gray-900"
+          initial={{ opacity: 0, y: -100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
+          Find your perfect <br /> university abroad facilities
+        </motion.h1>
 
-      <div className="w-full bg-transparent flex flex-col items-center text-center px-6 pb-16">
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-black">
-        
-        </h1>
+        <div className="w-full bg-transparent flex flex-col items-center text-center px-6 pb-16">
+          <motion.p
+            className="text-lg text-gray-700 mt-4 max-w-2xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 1 }}
+          >
+            GlobeNext Solutions is your ultimate gateway to studying and traveling abroad, offering seamless university admissions, visa assistance, accommodation, and personalized travel services.
+          </motion.p>
 
-        <p className="text-lg text-gray-700 mt-4 max-w-2xl">
-        GlobeNext Solutions is your ultimate gateway to studying and traveling abroad, offering seamless university admissions, visa assistance, accommodation, and personalized travel services.
-        </p>
-
-        <div className="flex items-center justify-center gap-3 mt-6">
-          <div className="flex -space-x-2">
-            <img src="https://randomuser.me/api/portraits/women/79.jpg" className="w-10 h-10 rounded-full border border-white" />
-            <img src="https://randomuser.me/api/portraits/men/42.jpg" className="w-10 h-10 rounded-full border border-white" />
-            <img src="https://randomuser.me/api/portraits/women/21.jpg" className="w-10 h-10 rounded-full border border-white" />
-            <img src="https://randomuser.me/api/portraits/men/62.jpg" className="w-10 h-10 rounded-full border border-white" />
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <div className="flex -space-x-2">
+              <img src="https://randomuser.me/api/portraits/women/79.jpg" className="w-10 h-10 rounded-full border border-white" />
+              <img src="https://randomuser.me/api/portraits/men/42.jpg" className="w-10 h-10 rounded-full border border-white" />
+              <img src="https://randomuser.me/api/portraits/women/21.jpg" className="w-10 h-10 rounded-full border border-white" />
+              <img src="https://randomuser.me/api/portraits/men/62.jpg" className="w-10 h-10 rounded-full border border-white" />
+            </div>
+            <span className="text-gray-700 text-sm">Trusted already by 2k+ people</span>
           </div>
-          <span className="text-gray-700 text-sm">Trusted already by 2k+ people</span>
-        </div>
 
-        <div className="mt-6 flex justify-center gap-4">
-          <button className="px-6 py-3 border border-gray-900 text-gray-900 font-medium rounded-full hover:bg-gray-100">
-            Learn more
-          </button>
-          <Link to="/contact">
-            <button className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-full hover:bg-indigo-700">
-              Contact Us
-            </button>
-          </Link>
+          <div className="mt-6 flex justify-center gap-4">
+            <motion.button
+              className="px-6 py-3 border border-gray-900 text-gray-900 font-medium rounded-full hover:bg-gray-100"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.5, duration: 1 }}
+            >
+              Learn more
+            </motion.button>
+            <Link to="/contact">
+              <motion.button
+                className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-full hover:bg-indigo-700"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5, duration: 1 }}
+              >
+                Contact Us
+              </motion.button>
+            </Link>
+            
+          </div>
+         
         </div>
       </div>
-</div>
+      
       <StudyDestinations />
     </section>
     

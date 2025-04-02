@@ -6,8 +6,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const StatsSection = () => {
   const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
 
   useEffect(() => {
+    // ScrollTrigger animation for the whole section
     gsap.fromTo(
       sectionRef.current,
       { opacity: 0, y: 50 },
@@ -23,6 +25,27 @@ const StatsSection = () => {
         },
       }
     );
+
+    // Animation for individual cards (scale and fade in)
+    gsap.utils.toArray(cardsRef.current).forEach((card, index) => {
+      gsap.fromTo(
+        card,
+        { opacity: 0, scale: 0.9, y: 50 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          delay: index * 0.2, // Staggered animation
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
   }, []);
 
   return (
@@ -32,7 +55,7 @@ const StatsSection = () => {
         Join the <span className="text-yellow-500">Study Abroad</span> Revolution
       </h2>
       <p className="text-gray-600 mt-4 max-w-2xl text-lg md:text-xl leading-relaxed">
-      GlobeNest Solutions – Your trusted partner for seamless study, travel, and visa assistance worldwide!
+        GlobeNest Solutions – Your trusted partner for seamless study, travel, and visa assistance worldwide!
       </p>
 
       {/* Stats Cards */}
@@ -40,6 +63,7 @@ const StatsSection = () => {
         {statsData.map((stat, index) => (
           <div
             key={index}
+            ref={(el) => (cardsRef.current[index] = el)} // Assign to ref for GSAP targeting
             className={`p-6 rounded-lg shadow-lg text-center transition-all duration-300 transform hover:scale-105 hover:shadow-xl
             ${stat.alwaysBlue ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-800 hover:bg-blue-600 hover:text-white"}`}
           >

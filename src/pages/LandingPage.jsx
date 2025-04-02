@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 import HeroSection from '../components/HeroSection/HeroSection';
 import StatsSection from '../components/StatsSection/StatsSection';
 import Timeline from '../components/Timeline/Timeline';
@@ -29,16 +30,78 @@ const LandingPage = () => {
         consultationRef={consultationRef}
       />
       
-      <div ref={heroRef}><HeroSection /></div>
-      <div ref={statsRef}><StatsSection /></div>
-      <div ref={timelineRef}><Timeline /></div>
-      <div ref={testimonialRef}><Testimonial /></div>
-      <div ref={destinationsRef}><StudyDestinations /></div>
-      <div ref={faqRef}><FAQ /></div>
-      <div ref={consultationRef}><ConsultationBanner /></div>
+      {/* Hero Section */}
+      <motion.div
+        ref={heroRef}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <HeroSection />
+      </motion.div>
+      
+      {/* Stats Section */}
+      <motion.div
+        ref={statsRef}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <StatsSection />
+      </motion.div>
+      
+      {/* Timeline Section */}
+      <motion.div
+        ref={timelineRef}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Timeline />
+      </motion.div>
+      
+      {/* Testimonial Section */}
+      <motion.div
+        ref={testimonialRef}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Testimonial />
+      </motion.div>
+      
+      {/* Study Destinations Section */}
+      <motion.div
+        ref={destinationsRef}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <StudyDestinations />
+      </motion.div>
+      
+      {/* FAQ Section */}
+      <motion.div
+        ref={faqRef}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <FAQ />
+      </motion.div>
+      
+      {/* Consultation Banner Section */}
+      <motion.div
+        ref={consultationRef}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <ConsultationBanner />
+      </motion.div>
+      
       {/* Spacer to reduce gap */}
-<div className="mt-[-20px]"></div> 
-
+      <div className="mt-[-20px]"></div>
     </div>
   );
 };
