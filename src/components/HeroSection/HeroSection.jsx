@@ -45,7 +45,7 @@ const StudyDestinations = () => {
   return (
     <div className="relative w-full overflow-hidden bg-white py-10">
       <h2 className="text-2xl font-semibold text-center text-gray-900 mb-6">
-        🎓 Find out best study destination
+        🎓 Find out best destination
       </h2>
 
       <div
@@ -108,13 +108,13 @@ const HeroSection = () => {
         </motion.button>
 
         <motion.h1
-          className="text-5xl md:text-6xl font-extrabold leading-tight text-gray-900"
-          initial={{ opacity: 0, y: -100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1 }}
-        >
-          Find your perfect <br /> university abroad facilities
-        </motion.h1>
+  className="text-lg md:text-5xl font-extrabold leading-tight text-gray-900"
+  initial={{ opacity: 0, y: -100 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.5, duration: 1 }}
+>
+ Empowering Global Dreams, From <br></br>Study to Travel!
+</motion.h1>
 
         <div className="w-full bg-transparent flex flex-col items-center text-center px-6 pb-16">
           <motion.p
@@ -123,7 +123,7 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
           >
-            GlobeNext Solutions is your ultimate gateway to studying and traveling abroad, offering seamless university admissions, visa assistance, accommodation, and personalized travel services.
+            GlobeNext Solutions simplifies global opportunities, from study to travel. We provide seamless visa assistance, university admissions, and travel arrangements, ensuring a hassle-free international experience.
           </motion.p>
 
           <div className="flex items-center justify-center gap-3 mt-6">
