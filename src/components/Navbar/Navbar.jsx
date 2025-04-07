@@ -22,7 +22,15 @@ const Navbar = ({
   };
 
   return (
-    <nav className="fixed w-full top-0 z-50 bg-transparent backdrop-blur-md px-6 py-4 shadow-lg">
+    <nav
+    className="fixed w-full top-0 z-50 backdrop-blur-md px-6 py-4 shadow-lg"
+    style={{
+      background: `radial-gradient(circle at top left, rgba(243, 223, 126, 0.6), rgba(134, 239, 172, 0.4), transparent 50%),
+                   radial-gradient(circle at top right, rgba(255, 94, 0, 0.7), rgba(59, 130, 246, 0.4), transparent 50%),
+                   linear-gradient(to bottom,  rgba(54, 119, 224, 0.4), rgba(240, 240, 240, 1))`,
+    }}
+  >
+  
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
@@ -153,3 +161,5 @@ const Navbar = ({
 };
 
 export default Navbar;
+
+

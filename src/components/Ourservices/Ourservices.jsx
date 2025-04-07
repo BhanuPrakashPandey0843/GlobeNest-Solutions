@@ -4,7 +4,10 @@ import {
   FaPassport,
   FaHotel,
   FaUniversity,
+  FaMoneyCheckAlt,
   FaMapMarkedAlt,
+  
+  
 } from 'react-icons/fa';
 
 const services = [
@@ -33,6 +36,12 @@ const services = [
     icon: <FaMapMarkedAlt size={48} className="text-indigo-500" />,
     desc: "Professional tour guidance to help you explore new places confidently and comfortably."
   },
+  {
+    title: "Remittance",
+    icon: <FaMoneyCheckAlt size={48} className="text-indigo-500" />,
+    desc: "Fast and secure money transfer services for your global financial needs."
+  },
+  
 ];
 
 const Ourservices = () => {
