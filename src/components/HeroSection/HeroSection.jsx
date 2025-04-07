@@ -45,7 +45,7 @@ const StudyDestinations = () => {
   return (
     <div className="relative w-full overflow-hidden bg-white py-10">
       <h2 className="text-2xl font-semibold text-center text-gray-900 mb-6">
-        🎓 Find out best destination
+        🎓 Find Out Best Destination 🎓
       </h2>
 
       <div

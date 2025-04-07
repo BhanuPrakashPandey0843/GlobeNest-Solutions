@@ -40,16 +40,16 @@ const LandingPage = () => {
       >
         <HeroSection />
       </motion.div>
-      
-      {/* Stats Section */}
+      {/* Ourservices */}
       <motion.div
-        ref={statsRef}
+        ref={faqRef}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <StatsSection />
+        <Ourservices />
       </motion.div>
+     
       
       {/* Timeline Section */}
       <motion.div
@@ -80,8 +80,18 @@ const LandingPage = () => {
       >
         <StudyDestinations />
       </motion.div>
+        
+         {/* Stats Section */}
+      <motion.div
+        ref={statsRef}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <StatsSection />
+      </motion.div>
 
-            {/* Ourservices */}
+            {/* Ourservices
             <motion.div
         ref={faqRef}
         initial={{ opacity: 0, y: 50 }}
@@ -89,7 +99,7 @@ const LandingPage = () => {
         transition={{ duration: 0.8 }}
       >
         <Ourservices />
-      </motion.div>
+      </motion.div> */}
       
       {/* FAQ Section */}
       <motion.div
