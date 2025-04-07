@@ -8,6 +8,7 @@ import StudyDestinations from '../components/StudyDestinations/StudyDestinations
 import FAQ from '../components/FAQ/faq';
 import ConsultationBanner from '../components/ConsultationBanner/Banner';
 import Navbar from '../components/Navbar/Navbar';
+import Ourservices from '../components/Ourservices/Ourservices'
 
 const LandingPage = () => {
   const heroRef = useRef(null);
@@ -78,6 +79,16 @@ const LandingPage = () => {
         transition={{ duration: 0.8 }}
       >
         <StudyDestinations />
+      </motion.div>
+
+            {/* Ourservices */}
+            <motion.div
+        ref={faqRef}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Ourservices />
       </motion.div>
       
       {/* FAQ Section */}
